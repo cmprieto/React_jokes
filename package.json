@@ -1,9 +1,12 @@
 {
+  "homepage": "https://github.com/cmprieto/React_jokes.git",
   "name": "template",
   "version": "1.0.0",
   "description": "",
   "main": "./dist",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy":"gh-pages -d build",
     "build": "cross-env NODE_ENV=production webpack",
     "start": "cross-env NODE_ENV=development webpack serve",
     "upload": "node ./bin/upload.js",
