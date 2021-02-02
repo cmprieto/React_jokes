@@ -3,6 +3,8 @@ import axios from "axios";
 import "./App.css";
 import { Container, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Weather} from "./Weather.js"
+
 
 const App = () => {
     const [joke, setJoke] = useState([]);
@@ -11,7 +13,6 @@ const App = () => {
     const clickHandler = () => {    //Funcion para cambiar valor estado y entonces cuenta otro chiste        
         setCounter(counter + 1)
     }
-
     useEffect(() => {
         axios
             .get(`https://icanhazdadjoke.com/`, {
@@ -28,6 +29,12 @@ const App = () => {
     return (
         <div>
             <Container >
+            <Row className="justify-content-center">
+                    <Col md={4} className="mt-5">
+                    <div className="bg-light lead text-uppercase text-center border border-warning">El tiempo en Barcelona :  
+                    <Weather/> </div>
+                    </Col>
+                </Row>
                 <Row className="justify-content-center">
                     <Col xs={9} className="mt-5">
                         <Jumbotron className="bg-white text-center">
@@ -36,10 +43,8 @@ const App = () => {
                             <Button onClick={clickHandler}>Next Joke! </Button>
                         </Jumbotron>
                     </Col>
-
                 </Row>
-
-            </Container>
+                </Container>
         </div>
     );
 };
